@@ -20,6 +20,7 @@ namespace BulkyWeb.Controllers
 
         public IActionResult Privacy()
         {
+            Console.WriteLine(Activity.Current.Id);
             return View();
         }
 
