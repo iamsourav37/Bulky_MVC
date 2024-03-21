@@ -14,6 +14,7 @@ namespace BulkyWeb.Models
         public string Name { get; set; }
 
         [DisplayName("Display Order")]
+        [Required(ErrorMessage ="Display Order value is required.")]
         public int DisplayOrder { get; set; }
 
     }

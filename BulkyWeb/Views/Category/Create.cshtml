@@ -6,7 +6,7 @@
 <div class="container">
 
     <div>
-        <a asp-controller="Category" asp-action="Index" class="btn btn-outline-primary rounded-4"> <i class="bi bi-arrow-left"></i> Back</a>
+        <a asp-controller="Category" asp-action="Index" class="btn btn-outline-primary rounded-4"> <i class="bi bi-arrow-left"></i> Back to List</a>
         <form action="#" method="post">
             <div class="row p-5 mt-4 border ">
                 <div class="row pb-2 mb-3">
@@ -16,10 +16,12 @@
                 <div class="mb-4 row">
                     <label asp-for="Name"></label>
                     <input asp-for="Name" class="form-control rounded-3 text-info" required />
+                    <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="mb-4 row">
                     <label asp-for="DisplayOrder"></label>
                     <input asp-for="DisplayOrder" class="form-control rounded-3 text-info"/>
+                    <span asp-validation-for="DisplayOrder" class="text-danger"></span>
                 </div>
                 <div class="mb-4 row">
                     <button type="submit" class="btn btn-info rounded-4" style="width:250px;">Create Category</button>
