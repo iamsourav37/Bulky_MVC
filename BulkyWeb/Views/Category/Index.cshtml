@@ -11,20 +11,20 @@
             <h1 class="text-info">Category List</h1>
         </div>
         <div class="col-6 text-end">
-            <a href="#" class="btn btn-info"> <i class="bi bi-plus-circle"></i> Create New Category</a>
+            <a asp-controller="Category" asp-action="Create" class="btn btn-info"> <i class="bi bi-plus-circle"></i> Create New Category</a>
         </div>
     </div>
 
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped ">
         <thead>
             <tr>
-                <th>Category Id</th>
-                <th>Category Name</th>
-                <th>Display Order</th>
+                <th class="text-info">Category Id</th>
+                <th class="text-info">Category Name</th>
+                <th class="text-info">Display Order</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody >
             @foreach (var val in Model.OrderBy(e => e.DisplayOrder))
             {
                 <tr>
