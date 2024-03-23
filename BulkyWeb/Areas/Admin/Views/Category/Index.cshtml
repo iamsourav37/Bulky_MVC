@@ -1,0 +1,54 @@
+﻿@model List<Category>;
+@{
+    ViewBag.Title = "All Category";
+}
+
+
+<div class="container">
+
+    <div class="row p-4">
+        <div class="col-6">
+            <h1 class="text-info">Category List</h1>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Category" asp-action="Create" class="btn btn-info"> <i class="bi bi-plus-circle"></i> Create New Category</a>
+        </div>
+    </div>
+
+    @if (Model.Count == 0)
+    {
+        <h2 class="text-warning text-center mt-5">No Category Found</h2>
+    }
+    else
+    {
+        <table class="table table-bordered table-striped ">
+            <thead>
+                <tr>
+                    <th class="text-info">Category Id</th>
+                    <th class="text-info">Category Name</th>
+                    <th class="text-info">Display Order</th>
+                    <th class="text-info"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var val in Model.OrderBy(e => e.DisplayOrder))
+                {
+                    <tr>
+                        <td>@val.Id</td>
+                        <td>@val.Name</td>
+                        <td>@val.DisplayOrder</td>
+                        <td>
+                            <div class="w-75 btn-group" role="group">
+                                <a asp-controller="Category" asp-route-categoryId="@val.Id" asp-action="Edit" class="btn btn-outline-warning mx-2 rounded-4"><i class="bi bi-pencil-square"></i> Edit</a>
+                                <a asp-controller="Category" asp-action="Delete" asp-route-categoryId="@val.Id" class="btn btn-outline-danger mx-2 rounded-4"><i class="bi bi-trash3"></i> Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+
+        </table>
+    }
+
+</div>
